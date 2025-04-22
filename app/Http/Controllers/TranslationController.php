@@ -10,7 +10,7 @@ class TranslationController extends Controller
 {
     public function index()
     {
-        $translations = Translation::with('user')->first();
+        $translations = Translation::with('user')->get();
 
         return response()->json([
             'success' => true,
@@ -121,7 +121,7 @@ class TranslationController extends Controller
 public function userHistory(Request $request, $userId)
     {
     // Get all translations for the specified user
-    $translations = Translation::where('user_id', $userId)->first();
+    $translations = Translation::where('user_id', $userId)->get();
 
     if ($translations->isEmpty()) {
         return response()->json([
