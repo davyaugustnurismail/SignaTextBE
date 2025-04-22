@@ -49,10 +49,6 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --ansi"
-        ],
-        "post-install-cmd": [
-            "apt-get update && apt-get install -y libpq-dev",
-            "docker-php-ext-install pdo_pgsql"
         ]
     },
     "extra": {
