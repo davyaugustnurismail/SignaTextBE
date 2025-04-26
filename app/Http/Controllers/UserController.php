@@ -11,7 +11,17 @@ class UserController extends Controller
 {
     public function profile(Request $request, $userId)
     {
-        $user = User::where('id', $userId)->get();
+        // Verifikasi apakah user yang sedang login memiliki akses ke profile ini
+        $loggedInUser = Auth::user();
+
+        if ($loggedInUser->id !== (int)$userId) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Unauthorized access',
+            ], 403);
+        }
+
+        $user = User::find($userId);
 
         if (!$user) {
             return response()->json([
