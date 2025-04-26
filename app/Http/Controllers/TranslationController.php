@@ -123,13 +123,6 @@ public function userHistory(Request $request, $userId)
     // Get all translations for the specified user
     $translations = Translation::where('user_id', $userId)->get();
 
-    if ($translations->isEmpty()) {
-        return response()->json([
-            'success' => false,
-            'message' => 'No history found for this user',
-        ], 404);
-    }
-
     return response()->json([
         'success' => true,
         'message' => 'User history retrieved successfully',
