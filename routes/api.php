@@ -17,7 +17,7 @@ Route::prefix('history')->group(function () {
     Route::post('/save', [TranslationController::class, 'store']);
     Route::get('/{id}', [TranslationController::class, 'show']);
     Route::delete('/{id}', [TranslationController::class, 'destroy']);
-    Route::get('/user/{user_id}', [TranslationController::class, 'userHistory'])->middleware('auth:sanctum');
+    Route::get('/user/{user_id}', [TranslationController::class, 'userHistory']);
 });
 
 Route::prefix('auth')->group(function (){
@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class, 'login'])
     ->name('logout')
     ->middleware('auth:sanctum');
 
-    Route::get('/user/{id}', [UserController::class, 'profile']);
+    Route::get('/user', [UserController::class, 'profile'])->middleware('auth:sanctum');
 });
 
 Route::post('/upload', [VideoController::class, 'uploadMedia']);
