@@ -19,7 +19,10 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5000'],
+    'allowed_origins' => [
+        'http://localhost:5000',
+        'https://signatext.vercel.app/'
+],
 
     'allowed_origins_patterns' => [],
 
