@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class, 'login'])
     ->name('logout')
     ->middleware('auth:sanctum');
 
-    Route::get('/user', [UserController::class, 'profile'])->middleware('auth:sanctum');
+    Route::get('/me', [UserController::class, 'profile'])->middleware('auth:sanctum');
 });
 
 Route::post('/upload', [VideoController::class, 'uploadMedia']);
