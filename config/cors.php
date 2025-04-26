@@ -21,7 +21,7 @@ return [
 
     'allowed_origins' => [
         'http://localhost:5000',
-        'https://signatext.vercel.app/'
+        'https://signatext.vercel.app'
 ],
 
     'allowed_origins_patterns' => [],
